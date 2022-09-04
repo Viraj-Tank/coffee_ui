@@ -13,7 +13,7 @@ class Coffee {
   static const coffeeList = [
     Coffee(
       imageUrl: 'assets/images/cappaccino.jpg',
-      title: "Cappaccino",
+      title: "Cappuccino",
       toppings: "with Oat Milk",
       price: 4.99,
     ),
@@ -32,7 +32,7 @@ class Coffee {
     Coffee(
       imageUrl: 'assets/images/combo.jpg',
       title: "Coffee Combo",
-      toppings: "Plain, Powder & Cappaccino",
+      toppings: "Plain, Powder & Cappuccino",
       price: 9.99,
     ),
   ];

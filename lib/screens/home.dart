@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List selectedCoffeeType = [
-    ['Cappaccino', true],
+    ['Cappuccino', true],
     ['Black coffee', false],
     ['Milk', false],
     ['Others', false]
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: Icon(Icons.menu),
-        actions: [
+        actions: const [
           Padding(
             padding: EdgeInsets.only(right: 16),
             child: Icon(Icons.person),
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text("Find the coffee that you like 🤎",
                   style: GoogleFonts.dancingScript(fontSize: 46)),
             ),
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               child: TextField(
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search),
-                  hintText: "Cappaccino, Black coffee etc.",
+                  hintText: "Cappuccino, Black coffee etc.",
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey.shade500),
                   ),
