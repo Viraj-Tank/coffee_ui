@@ -13,8 +13,8 @@ class HorizontalTile extends StatelessWidget {
         return Padding(
         padding: EdgeInsets.only(left: 16),
         child: Container(
-          padding: EdgeInsets.all(10),
-          width: 170,
+          padding: EdgeInsets.all(8),
+          width: 150,
           height: constraints.maxHeight,
           decoration: BoxDecoration(
             color: Colors.black,
@@ -47,16 +47,15 @@ class HorizontalTile extends StatelessWidget {
                     Text(
                       coffee.title,
                       style: GoogleFonts.ubuntu(
-                          fontSize: 18, fontWeight: FontWeight.w400),
+                          fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                     SizedBox(height: 4),
                     Text(
                       coffee.toppings,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      
                       style: GoogleFonts.ubuntu(
-                          fontSize: 13,
+                          fontSize: 12,
                           fontWeight: FontWeight.w100,
                           color: Colors.grey),
                     )

@@ -22,8 +22,8 @@ class VerticalTile extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            height: 120,
-            width: 120,
+            height: 100,
+            width: 100,
             decoration: BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -43,7 +43,7 @@ class VerticalTile extends StatelessWidget {
               children: [
                 Text(
                   coffee.title,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 Text(
                   coffee.toppings,
@@ -69,7 +69,7 @@ class VerticalTile extends StatelessWidget {
                       "${coffee.price}",
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
-                        fontSize: 16,
+                        fontSize: 12,
                       ),
                     )
                   ],
