@@ -1,4 +1,5 @@
 import 'package:coffee_ui/model/coffee_model.dart';
+import 'package:coffee_ui/widgets/coffee_type.dart';
 import 'package:coffee_ui/widgets/horizontal_tile.dart';
 import 'package:coffee_ui/widgets/vertical_tile.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List selectedCoffeeType = [
+    ['Cappaccino', true],
+    ['Black coffee', false],
+    ['Milk', false],
+    ['Others', false]
+  ];
+
+  void setSelectedIndex(int index) {
+    setState(() {
+      for (int i = 0; i < selectedCoffeeType.length; i++) {
+        selectedCoffeeType[i][1] = false;
+      }
+      selectedCoffeeType[index][1] = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +71,23 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Container(
+            SizedBox(
+              height: 50,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: selectedCoffeeType.length,
+                itemBuilder: (ctx,index) {
+                  return CoffeeType(
+                    coffeeType: selectedCoffeeType[index][0],
+                    isSelected: selectedCoffeeType[index][1],
+                    onTap: () {
+                      setSelectedIndex(index);
+                    },
+                  );
+                },
+              ),
+            ),
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.35,
               child: ListView.builder(
                 itemCount: HomePage.coffeeList.length,
@@ -64,9 +97,9 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
               ),
             ),
-            Padding(
-              padding:
-                  const EdgeInsets.only(left: 16,right: 16,top: 20,bottom: 8),
+            const Padding(
+              padding: EdgeInsets.only(
+                  left: 16, right: 16, top: 20, bottom: 8),
               child: Text(
                 "Special for you",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
