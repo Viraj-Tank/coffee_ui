@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: Icon(Icons.menu),
-        actions: [
+        actions: const [
           Padding(
             padding: EdgeInsets.only(right: 16),
             child: Icon(Icons.person),
@@ -46,6 +46,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,12 +61,12 @@ class _HomePageState extends State<HomePage> {
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
               child: TextField(
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   hintText: "Cappaccino, Black coffee etc.",
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey.shade500),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
                   ),
                 ),
@@ -74,9 +75,10 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 50,
               child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: selectedCoffeeType.length,
-                itemBuilder: (ctx,index) {
+                itemBuilder: (ctx, index) {
                   return CoffeeType(
                     coffeeType: selectedCoffeeType[index][0],
                     isSelected: selectedCoffeeType[index][1],
@@ -90,6 +92,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.32,
               child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 itemCount: HomePage.coffeeList.length,
                 itemBuilder: (context, index) {
                   return HorizontalTile(coffee: HomePage.coffeeList[index]);
@@ -98,18 +101,17 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(
-                  left: 16, right: 16, top: 20, bottom: 8),
+              padding: EdgeInsets.only(left: 16, right: 16, top: 20, bottom: 8),
               child: Text(
                 "Special for you",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 10),
+              padding: const EdgeInsets.only(bottom: 10),
               child: ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: HomePage.coffeeList.length,
                 itemBuilder: (context, index) {
                   return VerticalTile(
