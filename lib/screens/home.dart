@@ -1,4 +1,5 @@
 import 'package:coffee_ui/model/coffee_model.dart';
+import 'package:coffee_ui/utils/ui_helper.dart';
 import 'package:coffee_ui/widgets/coffee_type.dart';
 import 'package:coffee_ui/widgets/horizontal_tile.dart';
 import 'package:coffee_ui/widgets/vertical_tile.dart';
@@ -38,10 +39,13 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: Icon(Icons.menu),
-        actions: const [
+        actions: [
           Padding(
             padding: EdgeInsets.only(right: 16),
-            child: Icon(Icons.person),
+            child: IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () => UIHelper.showLoaderDialog(context),
+            ),
           ),
         ],
       ),
