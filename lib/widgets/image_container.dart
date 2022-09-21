@@ -8,11 +8,13 @@ class ImageContainer extends StatelessWidget {
   final EdgeInsets? margin;
   final double borderRadius;
   final Widget? child;
+  final Color bgColor;
 
   const ImageContainer(
       {Key? key,
       required this.width,
       required this.imageUrl,
+      this.bgColor = Colors.transparent,
       this.padding,
       this.height = 125,
       this.margin,
@@ -26,9 +28,10 @@ class ImageContainer extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
+        color: bgColor,
         borderRadius: BorderRadius.circular(borderRadius),
         image:
-            DecorationImage(image: NetworkImage(imageUrl), fit: BoxFit.cover),
+            DecorationImage(image: NetworkImage(imageUrl), fit: BoxFit.cover,),
       ),
       padding: padding,
       margin: margin,
