@@ -1,7 +1,9 @@
 import 'package:coffee_ui/model/coffee_model.dart';
 import 'package:coffee_ui/utils/ui_helper.dart';
+import 'package:coffee_ui/widgets/blur_bottom_bg.dart';
 import 'package:coffee_ui/widgets/coffee_type.dart';
 import 'package:coffee_ui/widgets/horizontal_tile.dart';
+import 'package:coffee_ui/widgets/my_bottom_bar.dart';
 import 'package:coffee_ui/widgets/vertical_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
+      extendBody: true,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -128,12 +131,8 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.notifications), label: ""),
-        ],
+      bottomNavigationBar: BlurBottomBackground(
+        child: MyBottomBar(),
       ),
     );
   }

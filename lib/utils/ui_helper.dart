@@ -29,15 +29,20 @@ class UIHelper {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          content: Row(
-            children: [
-              const CircularProgressIndicator(),
-              Container(
-                margin: const EdgeInsets.only(left: 16),
-                child: const Text("Loading..."),
-              ),
-            ],
+        return WillPopScope(
+          onWillPop: () {
+            return Future.value(false);
+          },
+          child: AlertDialog(
+            content: Row(
+              children: [
+                const CircularProgressIndicator(),
+                Container(
+                  margin: const EdgeInsets.only(left: 16),
+                  child: const Text("Loading..."),
+                ),
+              ],
+            ),
           ),
         );
       },
