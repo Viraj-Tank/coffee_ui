@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.coffee_ui">
-   <application
+
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <application
         android:label="Coffee UI"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
